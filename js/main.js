@@ -25,17 +25,35 @@ function getWeather() {
           var weather, temp_f, temp_c, wind_mph, wind_dir;
           
           weather = data2.current_observation.weather;
-          console.log('weather: ' + weather);
+          var weatherStr = weather;
+          // console.log('weather: ' + weather);
           
           temp_f = data2.current_observation.temp_f;
-          console.log('temp_f: ' + temp_f);
+          //console.log('temp_f: ' + temp_f);
           temp_c = data2.current_observation.temp_c;
+          var tempStr = temp_f + ' degrees Fahrenheit.';
           
           wind_mph = data2.current_observation.wind_mph;
           wind_dir = data2.current_observation.wind_dir;
-          console.log('wind: ' + wind_mph + ' due ' + wind_dir);
-          
-          
+          var windStr = 'Wind is coming from ' + wind_dir + ' at ' + wind_mph + ' mph.';
+          //console.log('wind is coming from ' + wind_dir + ' at ' + wind_mph + ' mph.');
+
+          //update DOM with weather data
+          var pWeather = document.createElement('p');
+          pWeather.innerText = weatherStr;
+          var divWeather = document.querySelector('.weather');
+          divWeather.appendChild(pWeather);
+
+          var pTemp = document.createElement('p');
+          pTemp.innerText = tempStr;
+          var divTemp = document.querySelector('.temp');
+          divTemp.appendChild(pTemp);
+
+          var pWind = document.createElement('p');
+          pWind.innerText = windStr;
+          var divWind = document.querySelector('.wind');
+          divWind.appendChild(pWind);
+
         });
       
       

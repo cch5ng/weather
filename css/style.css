@@ -4,20 +4,9 @@ body {
 	background-position: 50% -150px, center;
 	background-repeat: no-repeat;
 	margin-top: 15px;
-	/* should there be separate image for portrait and landscape at each breakpoint? */
 	background-color: #b0aeba;
 	color: #000;
 	font-family: 'Raleway', sans-serif;
-}
-
-header {
-/*	margin-top: 110px;
-*/
-}
-
-main {
-/*	margin-top: 25px;
-*/
 }
 
 h2 {
@@ -35,17 +24,11 @@ footer {
 	font-size: 0.85em;
 }
 
-/*.container {
-	height: 100%;
-}
-*/
-
 .buttons {
 	margin: 20px auto;
 }
 
 .button {
-	/*width: 100%;*/
 	background-color: #8c8b94;
 	font-size: 1.25em;
 	display: block;
@@ -61,46 +44,9 @@ footer {
 	border-bottom: 3px solid #58575d;
 }
 
-.cartoon {
-	display: block;
-	margin: 0 auto;
-/*	background-image: url('https://cch5ng.github.io/weather/media/pengucorn_md.png');
-*/}
-
-.quote {
-	margin-top: 15px;
-	font-size: 1.4em;
-}
-
-.source {
-	text-align: center;
-	font-style: italic;
-}
-
-.hidden {
-	display: none;
-}
-
-a:link, a:visited {
-	color: #042e48;
-	border: 0;
-}
-
-a:hover, a:active {
-	text-decoration: underline;
-}
-
 /* phone landscape does not look good */
 
 @media only screen and (min-width: 480px) {
-
-/*	body {
-		background-image: url('http://cch5ng.github.io/quote-generator/media/nraymond_wdaisy768x1024.jpg');
-	}*/
-
-/*	.button {
-		width: 50%;
-	}*/
 }
 
 @media only screen and (min-width: 600px) and (orientation: portrait) {
@@ -119,7 +65,6 @@ a:hover, a:active {
 @media only screen and (min-width: 640px) and (orientation: landscape) {
 
 	body {
-/*		background-image: url('https://openclipart.org/download/222488/pengucorn.svg'); */
 		background-size: 355px 320px;
 		background-position: 90% 30px;
 	}
@@ -142,18 +87,9 @@ a:hover, a:active {
 @media only screen and (min-width: 768px) {
 
 	body {
-/*		background-image: url('https://openclipart.org/download/222488/pengucorn.svg'); */
 		background-size: 900px 811px;
 		background-position: 50% 40px, center;
 	}
-
-	/*header {
-		margin-top: 160px;
-	}*/
-
-	/*.buttons {
-		margin: 30px auto;
-	}*/
 
 	h2 {
 		text-align: center;
@@ -167,26 +103,16 @@ a:hover, a:active {
 	.button {
 		margin: 30px auto;
 	}
-
-/*	.button {
-		width: 33%;
-	}*/
 }
 
 @media only screen and (min-width: 992px) {
 	body {
 		background-position: 50% 40px, center;
-/*		background-image: url('http://cch5ng.github.io/quote-generator/media/nicolas_raymond_winter_daisy.jpg');
-*/
 	}
 
 	header {
 		margin-top: 110px;
 	}
-
-/*	.button {
-		width: 200px;
-	}*/
 }
 
 @media only screen and (min-width: 1200px) {

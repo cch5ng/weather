@@ -6,7 +6,7 @@ function getWeather() {
   }
   
   function success(data) {
-  var AK = '9e8a6bd909702d86';
+  var AK = 'api_key';
   var latitude = data.coords.latitude;
     var longitude = data.coords.longitude;
     var cityUrl = 'http://api.wunderground.com/api/' + AK + '/geolookup/q/' + latitude + ',' + longitude + '.json';

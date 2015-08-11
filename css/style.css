@@ -103,6 +103,19 @@ a:hover, a:active {
 	}*/
 }
 
+@media only screen and (min-width: 600px) and (orientation: portrait) {
+
+	body {
+		background-size: 1500px 1351px;
+		background-position: 50% -165px, center;
+	}
+
+	h2 {
+		margin-top: 20px;
+	}
+
+}
+
 @media only screen and (min-width: 640px) and (orientation: landscape) {
 
 	body {

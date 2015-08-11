@@ -35,11 +35,11 @@ function getWeather() {
           temp_c = data2.current_observation.temp_c;
           temp = temp_f;
 
-          var tempStr = temp + ' degrees ' + tempFormat + '.';
+          var tempStr = temp + ' degrees ' + tempFormat;
           
           wind_mph = data2.current_observation.wind_mph;
           wind_dir = data2.current_observation.wind_dir;
-          var windStr = 'Wind is coming from ' + wind_dir + ' at ' + wind_mph + ' mph.';
+          var windStr = 'Wind from the ' + wind_dir + ' at ' + wind_mph + ' mph';
           //console.log('wind is coming from ' + wind_dir + ' at ' + wind_mph + ' mph.');
 
           //update DOM with weather data

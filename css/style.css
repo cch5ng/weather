@@ -7,15 +7,17 @@ body {
 }
 
 header {
-	margin-top: 35px;
+	margin-top: 15px;
 }
 
 main {
-	margin-top: 25px;
+/*	margin-top: 25px;
+*/
 }
 
 h2 {
 	text-align: center;
+	margin-top: 0;
 }
 
 p {
@@ -52,8 +54,10 @@ footer {
 }
 
 .cartoon {
-	background-image: url('https://cch5ng.github.io/weather/media/pengucorn_md.png');
-}
+	display: block;
+	margin: 0 auto;
+/*	background-image: url('https://cch5ng.github.io/weather/media/pengucorn_md.png');
+*/}
 
 .quote {
 	margin-top: 15px;
@@ -97,7 +101,7 @@ a:hover, a:active {
 	}*/
 
 	header {
-		margin-top: 100px;
+		/*margin-top: 100px;*/
 	}
 
 	.buttons {

@@ -15,32 +15,24 @@ function getWeather() {
     var temp;
     
     $.getJSON(cityUrl, function(data) {
-        //console.log('gets here too');
-        //console.log('data: ' + data);
       var city = data.location.city;
-        //console.log(city);
-        
+
         conditionsUrl = 'http://api.wunderground.com/api/' + AK + '/conditions/q/CA/' + city + '.json';
-      
+
         $.getJSON(conditionsUrl, function(data2) {
-          //console.log('data2 ' + data2);
           var weather, temp_f, temp_c, wind_mph, wind_dir;
-          
+
           weather = data2.current_observation.weather;
-          var weatherStr = weather;
-          // console.log('weather: ' + weather);
-          
+          var weatherStr = weather + ' in ' + city;
+
           temp_f = data2.current_observation.temp_f;
-          //console.log('temp_f: ' + temp_f);
           temp_c = data2.current_observation.temp_c;
           temp = temp_f;
-
           var tempStr = temp + ' degrees ' + tempFormat;
-          
+
           wind_mph = data2.current_observation.wind_mph;
           wind_dir = data2.current_observation.wind_dir;
           var windStr = 'Wind from the ' + wind_dir + ' at ' + wind_mph + ' mph';
-          //console.log('wind is coming from ' + wind_dir + ' at ' + wind_mph + ' mph.');
 
           //update DOM with weather data
           var pWeather = document.createElement('p');
@@ -49,20 +41,23 @@ function getWeather() {
           divWeather.appendChild(pWeather);
 
           function updateTemp() {
-            var divTemp = document.querySelector('.temp');
-            var pTemp0 = document.querySelector('div.temp > p');
-
-            if (pTemp0) {
-              divTemp.removeChild(pTemp0);
-            }
-
-            tempStr = temp + ' degrees ' + tempFormat + '.';
-            var pTemp = document.createElement('p');
+            tempStr = temp + ' degrees ' + tempFormat;
+            var pTemp = document.querySelector('.temp-data');
+            pTemp.innerText = '';
             pTemp.innerText = tempStr;
-            divTemp.appendChild(pTemp);
           }
 
           updateTemp();
+
+          function addTempButton() {
+            var button = document.createElement('button');
+            button.id = 'tempBtn';
+            button.setAttribute('class', 'button');
+            var divTemp = document.querySelector('.temp');
+            divTemp.appendChild(button);
+          }
+
+          addTempButton();
 
           function updateButton() {
             var btn = document.querySelector('#tempBtn');
@@ -92,30 +87,23 @@ function getWeather() {
 
             updateTemp();
             updateButton();
-
           }
 
           //button click event listener
           var tempBtn = document.querySelector('#tempBtn');
           tempBtn.addEventListener('click', tempBtnClickHandler);
-
         });
-      
-      
     });
-    
   }
-  
+
   function error() {
     var err = 'Unable to get your location.';
     console.log(err);
   }
-  
+
   navigator.geolocation.getCurrentPosition(success, error);
-  
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
-  //console.log('gets here');
   getWeather();
 });

@@ -28,7 +28,7 @@ function getWeather() {
           temp_f = data2.current_observation.temp_f;
           temp_c = data2.current_observation.temp_c;
           temp = temp_f;
-          var tempStr = temp + ' degrees ' + tempFormat;
+          var tempStr;
 
           wind_mph = data2.current_observation.wind_mph;
           wind_dir = data2.current_observation.wind_dir;
@@ -41,10 +41,10 @@ function getWeather() {
           divWeather.appendChild(pWeather);
 
           function updateTemp() {
-            tempStr = temp + ' degrees ' + tempFormat;
+            tempStr = temp + '&deg; ' + tempFormat;
             var pTemp = document.querySelector('.temp-data');
-            pTemp.innerText = '';
-            pTemp.innerText = tempStr;
+            pTemp.innerHTML = '';
+            pTemp.innerHTML = tempStr;
           }
 
           updateTemp();

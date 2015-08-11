@@ -11,6 +11,8 @@ function getWeather() {
     var longitude = data.coords.longitude;
     var cityUrl = 'http://api.wunderground.com/api/' + AK + '/geolookup/q/' + latitude + ',' + longitude + '.json';
     var conditionsUrl; 
+    var tempFormat = 'F';
+    var temp;
     
     $.getJSON(cityUrl, function(data) {
         //console.log('gets here too');
@@ -31,7 +33,9 @@ function getWeather() {
           temp_f = data2.current_observation.temp_f;
           //console.log('temp_f: ' + temp_f);
           temp_c = data2.current_observation.temp_c;
-          var tempStr = temp_f + ' degrees Fahrenheit.';
+          temp = temp_f;
+
+          var tempStr = temp + ' degrees ' + tempFormat + '.';
           
           wind_mph = data2.current_observation.wind_mph;
           wind_dir = data2.current_observation.wind_dir;
@@ -44,15 +48,56 @@ function getWeather() {
           var divWeather = document.querySelector('.weather');
           divWeather.appendChild(pWeather);
 
-          var pTemp = document.createElement('p');
-          pTemp.innerText = tempStr;
-          var divTemp = document.querySelector('.temp');
-          divTemp.appendChild(pTemp);
+          function updateTemp() {
+            var divTemp = document.querySelector('.temp');
+            var pTemp0 = document.querySelector('div.temp > p');
+
+            if (pTemp0) {
+              divTemp.removeChild(pTemp0);
+            }
+
+            tempStr = temp + ' degrees ' + tempFormat + '.';
+            var pTemp = document.createElement('p');
+            pTemp.innerText = tempStr;
+            divTemp.appendChild(pTemp);
+          }
+
+          updateTemp();
+
+          function updateButton() {
+            var btn = document.querySelector('#tempBtn');
+            if (tempFormat === 'F') {
+              btn.innerText = 'Get Celcius';
+            } else {
+              btn.innerText = 'Get Fahrenheit';
+            }
+          }
+
+          updateButton();
 
           var pWind = document.createElement('p');
           pWind.innerText = windStr;
           var divWind = document.querySelector('.wind');
           divWind.appendChild(pWind);
+
+          //button click event handler
+          function tempBtnClickHandler() {
+            if (tempFormat === 'F') {
+              tempFormat = 'C';
+              temp = temp_c;
+            } else {
+              tempFormat = 'F';
+              temp = temp_f;
+            }
+
+            updateTemp();
+            updateButton();
+
+          }
+
+          //button click event listener
+          var tempBtn = document.querySelector('#tempBtn');
+          tempBtn.addEventListener('click', tempBtnClickHandler);
 
         });
       

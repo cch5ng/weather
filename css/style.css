@@ -1,6 +1,7 @@
 body {
 	/*background-image: url('http://cch5ng.github.io/quote-generator/media/nraymond_wdaisy640x640.jpg');*/
 	/* should there be separate image for portrait and landscape at each breakpoint? */
+	background-color: #b0aeba;
 	color: #000;
 	font-family: 'Raleway', sans-serif;
 }
@@ -48,6 +49,10 @@ footer {
 	border-right: 0;
 	border-radius: 10px;
 	border-bottom: 3px solid #07517d;
+}
+
+.cartoon {
+	background-image: url('https://cch5ng.github.io/weather/media/pengucorn_md.png');
 }
 
 .quote {
